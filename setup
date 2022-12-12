@@ -1,0 +1,16 @@
+#/usr/bin/env bash
+
+if [ ! -d "rootfs" ]; then
+    wget -q --show-progress https://dl-cdn.alpinelinux.org/alpine/v3.17/releases/x86_64/alpine-minirootfs-3.17.0-x86_64.tar.gz
+    mkdir rootfs
+    tar -xvf alpine-minirootfs-3.17.0-x86_64.tar.gz -C rootfs
+    cp /etc/resolv.conf rootfs/etc/resolv.conf
+fi
+
+if [ ! $1 = "--no-cgroups" ]; then
+    cgcreate -t root -a root -g pids:/pids/
+    cgcreate -t root -a root -g memory:/memory/
+
+    cgcreate -t root -a root -g pids:/pids/container
+    cgcreate -t root -a root -g memory:/memory/container
+fi
