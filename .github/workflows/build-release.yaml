@@ -15,6 +15,6 @@ jobs:
       - name: Release
         uses: softprops/action-gh-release@v1
           with: 
-          name: release-$${{ github.sha }}
-          body: release for commit $${{ github.sha }}
-          files: containd-$${{ github.sha }}
+            name: release-$${{ github.sha }}
+            body: release for commit $${{ github.sha }}
+            files: containd-$${{ github.sha }}
