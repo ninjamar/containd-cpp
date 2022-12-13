@@ -11,7 +11,7 @@ jobs:
       - name: Build
         run: |
           sudo apt-get install build-essential
-          make OUTPUT=containd-{{ github.sha }}-x86_64
+          make OUTPUT=containd-${{ github.sha }}-x86_64
       
       - name: Release
         uses: softprops/action-gh-release@v1
