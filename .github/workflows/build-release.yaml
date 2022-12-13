@@ -5,13 +5,11 @@ jobs:
   build:
     runs-on: ubuntu-22.04 # ubuntu-latest?
     steps:
-      - name: Build
       - uses: actions/checkout@v3
 
       - run: sudo apt-get install build-essential
       - run: make OUTPUT=containd-$${{ github.sha }}-x86_64
         
-      - name: Release
       - uses: softprops/action-gh-release@v1
       with: 
         name: release-$${{ github.sha }}
