@@ -2,7 +2,7 @@ name: build-release
 run-name: Release for commit ${{ github.sha }}
 on: [push, workflow_dispatch]
 jobs:
-  build:
+  Release:
     runs-on: [ubuntu-22.04] # ubuntu-latest?
     steps:
       - name: Checkout
