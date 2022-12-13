@@ -1,8 +1,9 @@
 CXX=g++
+OUTPUT=containd
 .PHONY: setup create_rootfs sendfs clean fclean
 
 build: src/containd.cpp src/containd.hpp src/cgroupsv2.hpp
-	$(CXX) src/containd.cpp -o containd $(CFLAGS)
+	$(CXX) src/containd.cpp -o $(OUTPUT) $(CFLAGS)
 
 clean:
 	rm -f containd *.o 
